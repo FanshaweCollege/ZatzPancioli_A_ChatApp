@@ -18,7 +18,8 @@ const vm = new Vue({
         socketID: "",
         nickname: "",
         message: "",
-        messages: []
+        messages: [],
+        users: []
     },
 
     methods: {
