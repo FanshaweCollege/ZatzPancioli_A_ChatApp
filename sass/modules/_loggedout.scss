@@ -1,0 +1,33 @@
+body{
+    background-image: url('../images/bg.png');
+}
+
+#logOutContainer{
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10%;
+    background-color: #424242;
+    color: white;
+    padding: 5%;
+    h1{
+        margin-bottom: 3%;
+    }
+    p{
+        margin-bottom: 3%;
+    }
+    a{
+        text-decoration: none;
+        width: auto; 
+		padding: 10px; 
+		background-color: #FFEC00;
+		margin-top: 2rem; 
+		border-radius: 8px;
+		color: #570077;
+		cursor: pointer;
+		text-transform: uppercase;
+		font-weight: bold;
+    }
+}

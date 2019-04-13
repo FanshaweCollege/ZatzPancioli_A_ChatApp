@@ -14,6 +14,10 @@ app.get('/', (req, res, next) => {
     res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/loggedout', (req, res, next) => {
+  res.sendFile(__dirname + '/views/loggedout.html');
+});
+
 // create server variable for socket.io to use
 const server = app.listen(port, () => {
     console.log(`app is running on port ${port}`);
