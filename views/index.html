@@ -4,22 +4,30 @@
 	<meta charset="UTF-8">
 	<title>WhatsApp X</title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400|Oswald:200,400,600|Roboto" rel="stylesheet">
 	<link rel="stylesheet" href="stylesheets/main.css">
 	<script src="https://unpkg.com/vue"></script> 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css"></script>
 </head>
 <body>
+	<audio class="sound">
+		<source src="/sounds/graceful.mp3" type="audio/mpeg">
+	</audio>
 	<main id="app">	
 		<div class="form-container">
 			<div class="logo">
 				<img src="/images/logo.png" alt="logo">
-				<!--<a href="/loggedout" v-on:click.prevent="forceDisconnect">Leave Chat</a>-->
-			</div>		
-			<label for="nickname">Your Nickname (optional)</label>
-			<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
-			
+				<a href="/loggedout" v-on:click.prevent="disconnect" id="logOut">Log Out</a>
+			</div>
+			<div class="nickBox" :class="{'modal' : showNick}">
+				<form>	
+					<label for="nickname">Choose your Nickname</label>
+					<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
+					<input type="submit" value="JOIN" @click.prevent="changeName">
+				</form>	
+			</div>
 			<form>
-				<label for="message">Something to say?</label>
+				<label for="message">Your Message</label>
 				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea"></textarea>
 				<input type="submit" @click.prevent="dispatchMessage" id="button">
 			</form>
@@ -34,6 +42,5 @@
 	</main>
 	<script src="/socket.io/socket.io.js"></script>
 	<script type="module" src="javascripts/main_vm.js"></script>
-	<script src="javascripts/gsap.js"></script>
 </body>
 </html>
