@@ -13,21 +13,6 @@ function appendMessage(message) {
     document.querySelector('.sound').play();
 }
 
-function appendConnect(obj){
-    console.log(obj);
-    vm.notes.push(obj.message.name + " has connected!");
-    vm.users = obj.userList;
-}
-
-function appendDisconnect(obj){
-    if(obj.message.name !=""){
-    console.log(obj);
-    vm.notes.push(obj.message.name + " has disconnected!");
-    console.log(obj.userList);
-    vm.users = obj.userList;
-    }
-}
-
 const vm = new Vue({
     data: {
         socketID: "",
@@ -35,8 +20,7 @@ const vm = new Vue({
         message: "",
         messages: [],
         showNick: true,
-        users: [],
-
+        users: []
     },
 
     methods: {
@@ -44,7 +28,6 @@ const vm = new Vue({
         dispatchMessage() {
             // send a chat message
             socket.emit('chat message', { content: this.message, name: this.nickname || "Anonymous"} );
-
             this.message = "";
         },
 
